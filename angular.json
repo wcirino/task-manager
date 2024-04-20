@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "task-manager-app"
+  "defaultProject": "task-manager-app",
+  "cli": {
+    "analytics": false
+  }
 }
