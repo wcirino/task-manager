@@ -16,12 +16,13 @@ import { TaskListComponent } from './task-list/task-list.component';
   ],
   imports: [
     CommonModule
-  ],
-  exports: [
-    AddTaskComponent,
-    EditTaskComponent,
-    TaskDetailsComponent,
-    TaskListComponent
-  ]
+   ]
+  ,
+  // exports: [
+  //   AddTaskComponent,
+  //   EditTaskComponent,
+  //   TaskDetailsComponent,
+  //   TaskListComponent
+  // ]
 })
 export class TaskModule { }
