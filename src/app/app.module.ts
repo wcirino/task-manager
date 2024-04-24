@@ -13,6 +13,10 @@ import { MatListModule } from '@angular/material/list';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent } from './views/home/home.component';
+import { AddTaskComponent } from './page/add-task/add-task.component';
+import { TaskListComponent } from './page/task-list/task-list.component';
+import { EditTaskComponent } from './page/edit-task/edit-task.component';
+import { DeleteTaskComponent } from './page/delete-task/delete-task.component';
 
 
 
@@ -23,7 +27,11 @@ import { HomeComponent } from './views/home/home.component';
     HeaderComponent,
     FooterComponent,
     NavComponent,
-    HomeComponent
+    HomeComponent,
+    AddTaskComponent,
+    TaskListComponent,
+    EditTaskComponent,
+    DeleteTaskComponent
   ],
   imports: [
     BrowserModule,
