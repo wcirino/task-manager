@@ -1,0 +1,19 @@
+.home {
+    margin: 5px; /* Define uma margem ao redor do mat-card */
+}
+
+/* Adiciona margem apenas à esquerda do mat-card */
+.mat-card.home {
+    margin-left: 5px;
+}
+
+.home .title {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.home .subtitle {
+    font-size: 1.1rem;
+}
+

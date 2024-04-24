@@ -1,10 +1,6 @@
 .sidenav {
     background-color: #3F51B5;
-    width: 200px; /* Largura do sidenav */
-    left: 0; /* Posiciona o sidenav no início da tela */
-    top: 0; /* Posiciona o sidenav no topo da tela */
-    bottom: 0; /* Faz com que o sidenav ocupe toda a altura da tela */
-    position: fixed; /* Fixa o sidenav na tela */
+    width: 200px;
 }
 
 .sidenav a {
@@ -16,6 +12,6 @@
 }
 
 .content {
-     padding: 16px;
-     background-color: #FFF;
- }
+    padding: 16px;
+    background-color: #FFF;
+}
