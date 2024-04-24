@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TaskRouterModule } from './components/task-router.module';
-import { AddTaskComponent } from './components/add-task/add-task.component';
-import { EditTaskComponent } from './components/edit-task/edit-task.component';
+
 
 const routes: Routes = [
-  {
-    path: 'task',
-    loadChildren: () => import('./components/task.module').then(m => m.TaskModule)
-  }
+  // {
+  //   path: 'task',
+  //   loadChildren: () => import('./components/task.module').then(m => m.TaskModule)
+  // }
     // ,
   // {
   //   path: 'beneficiario',
@@ -21,7 +19,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)], // Adiciona TaskRouterModule aos imports
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

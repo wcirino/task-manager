@@ -3,28 +3,34 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TaskModule } from './components/task.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FooterComponent } from './view/footer/footer.component';
-import { HeaderComponent } from './view/header/header.component';
-import { NavComponent } from './view/nav/nav.component';
-import { HomeComponent } from './view/home/home.component';
-import { TaskRouterModule } from './components/task-router.module';
+import { HeaderComponent } from './components/template/header/header.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from  '@angular/material/sidenav';
+import { MatCardModule } from  '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { FooterComponent } from './components/template/footer/footer.component';
+import { NavComponent } from './components/template/nav/nav.component';
+import { HomeComponent } from './views/home/home.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
     HeaderComponent,
+    FooterComponent,
     NavComponent,
     HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TaskModule,
     BrowserAnimationsModule,
-    TaskRouterModule
+    MatToolbarModule,
+    MatListModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
