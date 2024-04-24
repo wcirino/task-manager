@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Task } from 'src/app/model/Task';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-add-task',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AddTaskComponent {
 
+ 
 }

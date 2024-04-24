@@ -22,6 +22,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
+import {FormsModule} from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 
 
@@ -47,7 +50,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatCardModule,
     MatSelectModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FormsModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

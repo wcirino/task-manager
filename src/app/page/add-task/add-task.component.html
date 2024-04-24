@@ -1,19 +1,64 @@
-<mat-form-field>
-    <mat-label>Input</mat-label>
-    <input matInput>
-  </mat-form-field>
+<div class="mt-1">
+    <form>
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Cadastro de tarefa</h1>
+            </div>
+        </div>
 
-  <mat-form-field>
-    <mat-label>Input</mat-label>
-    <input matInput>
-  </mat-form-field>
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <mat-label>Título</mat-label>
+                    <input matInput placeholder="Título">
+                </mat-form-field>
+            </div>
+            <div class="col-md-5">
+                <mat-form-field class="w-100">
+                    <mat-label>Descrição</mat-label>
+                    <input matInput placeholder="Descrição">
+                </mat-form-field>
+            </div>
+        </div>
 
-  <mat-form-field>
-    <mat-label>Input</mat-label>
-    <input matInput>
-  </mat-form-field>
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <mat-label>Data de criação</mat-label>
+                    <input matInput type="date" placeholder="Data de criação">
+                </mat-form-field>
+            </div>
+            <div class="col-md-5">
+                <mat-form-field class="w-100">
+                    <mat-label>Data de conclusão</mat-label>
+                    <input matInput type="date" placeholder="Data de conclusão">
+                </mat-form-field>
+            </div>
+        </div>
 
-  <mat-form-field>
-    <mat-label>Input</mat-label>
-    <input matInput>
-  </mat-form-field>
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <mat-label>Data limite</mat-label>
+                    <input matInput type="date" placeholder="Data limite">
+                </mat-form-field>
+            </div>
+            <div class="col-md-5">
+                <!-- <mat-form-field class="w-100"> -->
+                    <mat-label>Prioridade</mat-label><br>
+                    <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button value="1"  style="margin-right: 20px;">Baixa</mat-radio-button>
+                        <mat-radio-button value="2"  style="margin-right: 20px;">Media</mat-radio-button>
+                        <mat-radio-button value="2"  style="margin-right: 20px;">Alta</mat-radio-button>
+                      </mat-radio-group>
+                <!-- </mat-form-field> -->
+            </div>
+        </div>
+        <div class="col-md-11 d-flex justify-content-end">
+            <button type="button" class="btn btn-primary">Adicionar</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-secondary ml-2">Cancelar</button>
+        </div>
+        
+        
+    </form>
+</div>
