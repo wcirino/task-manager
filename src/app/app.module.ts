@@ -18,6 +18,10 @@ import { TaskListComponent } from './page/task-list/task-list.component';
 import { EditTaskComponent } from './page/edit-task/edit-task.component';
 import { DeleteTaskComponent } from './page/delete-task/delete-task.component';
 
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 
 
@@ -40,7 +44,10 @@ import { DeleteTaskComponent } from './page/delete-task/delete-task.component';
     MatToolbarModule,
     MatListModule,
     MatSidenavModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
