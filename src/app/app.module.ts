@@ -25,6 +25,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 
+import { MatPaginatorModule } from '@angular/material/paginator';
+
+
 
 
 
@@ -52,7 +55,9 @@ import {MatRadioModule} from '@angular/material/radio';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatPaginatorModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
