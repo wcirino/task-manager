@@ -36,6 +36,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 // import { RedDirective } from './directives/red.directive';
 
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 @NgModule({
@@ -71,7 +73,8 @@ import { MatSortModule } from '@angular/material/sort';
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    MatIconModule
    
   ],
   providers: [],

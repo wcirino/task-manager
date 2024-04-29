@@ -11,10 +11,10 @@ import { tap } from 'rxjs/operators';
 })
 export class TaskListComponent implements OnInit {
   tasks: Task[] = [];
-  displayedColumns: string[] = ['titulo', 'descricao', 'dt_criacao', 'dt_conclusao', 'dt_limite', 'prioridade', 'responsavel', 'status', 'action'];
+  displayedColumns: string[] = ['id','titulo', 'descricao', 'dt_criacao', 'dt_conclusao', 'dt_limite', 'prioridade', 'responsavel', 'status', 'action'];
   totalElements = 0;
   pageSize = 10;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
+  pageSizeOptions: number[] = [10, 15, 20, 25];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private taskService: TaskService) { }
@@ -24,6 +24,11 @@ export class TaskListComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+    this.paginator.page
+      .pipe(
+        tap(() => this.chamarMetodoGetAll())
+      )
+      .subscribe();
     this.chamarMetodoGetAll();
   }
 
@@ -38,6 +43,7 @@ export class TaskListComponent implements OnInit {
       if (tasksResponse) {
         this.tasks = tasksResponse.content;
         this.totalElements = tasksResponse.totalElements;
+        console.log("task: " + tasksResponse.content);
       }
     } catch (error) {
       console.error('Erro ao buscar tarefas:', error);
