@@ -3,6 +3,19 @@ import { Task } from 'src/app/model/Task';
 import { TaskService } from 'src/app/services/task.service';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { tap } from 'rxjs/operators';
+import {
+  MatDialog,
+  MatDialogRef,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogTitle,
+  MatDialogContent,
+} from '@angular/material/dialog';
+import { DialogSimNaoComponent } from 'src/app/shared/components/dialog-sim-nao/dialog-sim-nao.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarMensagemComponent } from 'src/app/shared/components/snackbar-mensagem/snackbar-mensagem.component';
+import { SnackbarService } from 'src/app/shared/util/SnackbarService ';
+// import { DialogAnimationsExampleDialog } from './dialog-animations-example-dialog'; 
 
 @Component({
   selector: 'app-task-list',
@@ -17,7 +30,10 @@ export class TaskListComponent implements OnInit {
   pageSizeOptions: number[] = [10, 15, 20, 25];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService,
+              public dialog: MatDialog,
+              private _snackBar: MatSnackBar,
+              private snackBarService: SnackbarService) { }
 
   ngOnInit(): void {
    
@@ -50,13 +66,87 @@ export class TaskListComponent implements OnInit {
     }
   }
 
+  alterarTarefa(){
+    console.log("Alterando!!");
+  }
 
-  // ngAfterViewInit() {
-  //   // Configurar o paginator depois que a exibição da visão foi inicializada
-  //   this.paginator.page
-  //     .pipe(
-  //       tap(() => this.chamarMetodoGetAll())
-  //     )
-  //     .subscribe();
-  // }
+  deletarTarefa(){
+    console.log("Deletando!!");
+    //this.openSnackBar();
+    //this.exibirSnackbarErro();
+    this.exibirSnackbarSucesso();
+  }
+
+  concluirTarefa(){
+    console.log("Tarefa concluída!!");
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogSimNaoComponent, {
+      width: '500px',
+      data: {
+        parameter1: 'value1',
+        parameter2: 'value2',
+        parameter3: 'value3'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        console.log('Usuário clicou em Sim');
+      } else {
+        console.log('Usuário clicou em Não ou fechou o diálogo');
+      }
+    });
+  }
+
+  openSnackBar2() {
+    this._snackBar.open('Realizar avaliação de desempenho dos funcionários <br> do departamento de vendas.', 'Fechar', {
+      duration: 3000,
+      verticalPosition: 'top', // Define a posição vertical
+      horizontalPosition: 'center', // Define a posição horizontal // Tempo em milissegundos (3 segundos)
+    });
+  }
+  
+  openSnackBar() {
+    const message = 'Realizar avaliação de desempenho dos funcionários <br> do departamento de vendas.';
+    const action = 'Fechar';
+    const title = 'Aviso'; 
+
+    const snackbarRef = this._snackBar.open(message, action, {
+      duration: 3000,
+      verticalPosition: 'top', 
+      horizontalPosition: 'center', 
+      panelClass: ['custom-snackbar'], 
+    });
+
+   
+    snackbarRef.onAction().subscribe(() => {
+      snackbarRef.dismiss(); 
+      this.openCustomSnackBar(title); 
+    });
+  }
+
+  openCustomSnackBar(title: string) {
+    this._snackBar.open(title, '', {
+      duration: 3000,
+      verticalPosition: 'top',
+      horizontalPosition: 'center',
+      panelClass: ['custom-snackbar'],
+    });
+  }
+  exibirSnackbarErro() {
+    this.snackBarService.showError('Mensagem de erro! ❌');
+  }
+
+  exibirSnackbarSucesso() {
+    this.snackBarService.showSuccess('Operação realizada com sucesso! 🎉');
+  }
+
+  exibirSnackbarPadrao() {
+    this.snackBarService.showDefault('Mensagem padrão. ℹ️');
+  }
+
+
 }
+

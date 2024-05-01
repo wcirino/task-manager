@@ -1,0 +1,8 @@
+<h2 mat-dialog-title class="rounded">Delete file</h2>
+<mat-dialog-content>
+  Would you like to delete {{ data.parameter1 }}, {{ data.parameter2 }}, and {{ data.parameter3 }}?
+</mat-dialog-content>
+<mat-dialog-actions class="rounded">
+    <button mat-button [mat-dialog-close]="true" class="btn btn-outline-primary">Sim</button>
+    <button mat-button [mat-dialog-close]="false" class="btn btn-outline-primary" cdkFocusInitial>Não</button>    
+</mat-dialog-actions>

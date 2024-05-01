@@ -4,7 +4,7 @@
 // @import "~primeflex/primeflex.css";
 @import "~primeng/resources/primeng.min.css";
 @import "~primeng/resources/themes/bootstrap4-light-blue/theme.css";
-
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -16,3 +16,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .v-middle {
     vertical-align: middle;
 }
+
+.custom-snackbar {
+    background-color: #2196f3; 
+    color: white;
+  }
+  
+.error-snackbar {
+    background-color: #f3baba; 
+    color: #1d1c1c; 
+}
+  
+.success-snackbar {
+    background-color: #caf1cc;
+    color: #1d1c1c;
+}
+  
+.default-snackbar {
+    background-color: #646363; 
+    color: #1d1c1c; 
+}
+  

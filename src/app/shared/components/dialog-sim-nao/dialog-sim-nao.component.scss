@@ -1,0 +1,10 @@
+.rounded {
+    border-radius: 900px; /* ou um valor maior, como 30px */
+}
+  
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; /* espaçamento entre os botões */
+  }
+  

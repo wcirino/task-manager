@@ -37,7 +37,10 @@ import { MatSortModule } from '@angular/material/sort';
 // import { RedDirective } from './directives/red.directive';
 
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogSimNaoComponent } from './shared/components/dialog-sim-nao/dialog-sim-nao.component';
+import { SnackbarMensagemComponent } from './shared/components/snackbar-mensagem/snackbar-mensagem.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -51,7 +54,9 @@ import { MatIconModule } from '@angular/material/icon';
     TaskListComponent,
     EditTaskComponent,
     DeleteTaskComponent,
-    TaskPesquisaComponent
+    TaskPesquisaComponent,
+    DialogSimNaoComponent,
+    SnackbarMensagemComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +79,9 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    MatSnackBarModule  
    
   ],
   providers: [],
