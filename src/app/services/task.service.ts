@@ -63,6 +63,26 @@ export class TaskService {
       );
   }
 
+  getTaskById(id: number): Observable<Task> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8'
+    });
+    return this.http.get<Task>(`${this.baseURL}/find/task/${id}`, { headers })
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  concluirTask(id: number): Observable<Task> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8'
+    });
+    return this.http.put<Task>(`${this.baseURL}/${id}/concluir`, null, { headers })
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
   private handleError(error: any): Observable<any> {
     return throwError(() => new Error(error.responseText));
   }

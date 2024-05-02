@@ -41,6 +41,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogSimNaoComponent } from './shared/components/dialog-sim-nao/dialog-sim-nao.component';
 import { SnackbarMensagemComponent } from './shared/components/snackbar-mensagem/snackbar-mensagem.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DialogOkComponent } from './shared/components/dialog-ok/dialog-ok.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DeleteTaskComponent,
     TaskPesquisaComponent,
     DialogSimNaoComponent,
-    SnackbarMensagemComponent
+    SnackbarMensagemComponent,
+    DialogOkComponent
   ],
   imports: [
     BrowserModule,

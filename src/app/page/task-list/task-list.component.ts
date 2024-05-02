@@ -15,6 +15,7 @@ import { DialogSimNaoComponent } from 'src/app/shared/components/dialog-sim-nao/
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarMensagemComponent } from 'src/app/shared/components/snackbar-mensagem/snackbar-mensagem.component';
 import { SnackbarService } from 'src/app/shared/util/SnackbarService ';
+import { DialogService } from 'src/app/shared/util/DialogService';
 // import { DialogAnimationsExampleDialog } from './dialog-animations-example-dialog'; 
 
 @Component({
@@ -33,7 +34,8 @@ export class TaskListComponent implements OnInit {
   constructor(private taskService: TaskService,
               public dialog: MatDialog,
               private _snackBar: MatSnackBar,
-              private snackBarService: SnackbarService) { }
+              private snackBarService: SnackbarService,
+              private dialogService: DialogService) { }
 
   ngOnInit(): void {
    
@@ -75,66 +77,49 @@ export class TaskListComponent implements OnInit {
     //this.openSnackBar();
     //this.exibirSnackbarErro();
     this.exibirSnackbarSucesso();
+    //this.openDialogOk();
   }
 
   concluirTarefa(){
     console.log("Tarefa concluída!!");
   }
 
-  openDialog(): void {
+  // openDialogSimNao(): void {
+  //   this.dialogService.openDialogSimNao('Título', 'Mensagem de aviso.').subscribe(result => {
+  //     if (result === true) {
+  //       console.log('Usuário clicou em Sim');
+  //     } else {
+  //       console.log('Usuário clicou em Não ou fechou o diálogo');
+  //     }
+  //   });
+  // }
+
+  openDialogSimNao(task: Task): void {
+    //console.log(task);
     const dialogRef = this.dialog.open(DialogSimNaoComponent, {
       width: '500px',
       data: {
-        parameter1: 'value1',
-        parameter2: 'value2',
-        parameter3: 'value3'
+        title: 'Confirmar ação',
+        msg: `Tem certeza que deseja concluir a tarefa: '${task.titulo}'?`
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === true) {
         console.log('Usuário clicou em Sim');
+        // Aqui você pode realizar a ação de conclusão da tarefa usando 'task'
+        // Por exemplo: this.concluirTarefa(task);
       } else {
         console.log('Usuário clicou em Não ou fechou o diálogo');
       }
     });
   }
 
-  openSnackBar2() {
-    this._snackBar.open('Realizar avaliação de desempenho dos funcionários <br> do departamento de vendas.', 'Fechar', {
-      duration: 3000,
-      verticalPosition: 'top', // Define a posição vertical
-      horizontalPosition: 'center', // Define a posição horizontal // Tempo em milissegundos (3 segundos)
-    });
-  }
-  
-  openSnackBar() {
-    const message = 'Realizar avaliação de desempenho dos funcionários <br> do departamento de vendas.';
-    const action = 'Fechar';
-    const title = 'Aviso'; 
 
-    const snackbarRef = this._snackBar.open(message, action, {
-      duration: 3000,
-      verticalPosition: 'top', 
-      horizontalPosition: 'center', 
-      panelClass: ['custom-snackbar'], 
-    });
-
-   
-    snackbarRef.onAction().subscribe(() => {
-      snackbarRef.dismiss(); 
-      this.openCustomSnackBar(title); 
-    });
+  openDialogOk(): void {
+    this.dialogService.openDialogOk('Título', 'Mensagem informativa.');
   }
 
-  openCustomSnackBar(title: string) {
-    this._snackBar.open(title, '', {
-      duration: 3000,
-      verticalPosition: 'top',
-      horizontalPosition: 'center',
-      panelClass: ['custom-snackbar'],
-    });
-  }
   exibirSnackbarErro() {
     this.snackBarService.showError('Mensagem de erro! ❌');
   }
