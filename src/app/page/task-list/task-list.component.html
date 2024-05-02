@@ -18,13 +18,13 @@
 
         <ng-container matColumnDef="dt_criacao">
             <th mat-header-cell *matHeaderCellDef class="custom-header">Data de Criação</th>
-            <td mat-cell *matCellDef="let task">{{ task.dtCriacao | date: 'dd/MM/yyyy' }}</td>
+            <td mat-cell *matCellDef="let task">{{ task.dt_Criacao | date: 'dd/MM/yyyy' }}</td>
         </ng-container>
 
         <ng-container matColumnDef="dt_conclusao">
             <th mat-header-cell *matHeaderCellDef class="custom-header">Data de Conclusão</th>
-            <td mat-cell *matCellDef="let task">{{ task.dtConclusao ? (task.dt_conclusao | date: 'dd/MM/yyyy') : '-' }}
-            </td>
+            <!-- <td mat-cell *matCellDef="let task">{{ task.dt_conclusao ? (task.dt_conclusao | date: 'dd/MM/yyyy') : '-' }}</td> -->
+            <td mat-cell *matCellDef="let task">{{ task.dt_Conclusao | date: 'dd/MM/yyyy' }}</td> 
         </ng-container>
 
         <ng-container matColumnDef="dt_limite">
@@ -57,10 +57,10 @@
             <th mat-header-cell *matHeaderCellDef class="custom-header-action">Ações</th>
             <td mat-cell *matCellDef="let row">
                 <div class="custom-action d-flex">
-                    <div class="mr-3" style="margin-right: 15px;" (click)="alterarTarefa()">
+                    <div class="mr-3" style="margin-right: 15px;" (click)="alterarTarefa(row)">
                         <mat-icon>edit</mat-icon>
                     </div>
-                    <div class="mr-3" style="margin-right: 15px;" (click)="deletarTarefa()">
+                    <div class="mr-3" style="margin-right: 15px;" (click)="openDialogDelete(row)">
                         <mat-icon>delete</mat-icon>
                     </div>
                     <div class="mr-3" style="margin-right: 15px;" (click)="openDialogSimNao(row)">

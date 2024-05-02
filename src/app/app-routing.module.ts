@@ -29,6 +29,11 @@ const routes: Routes = [
     path: "task/alterar",
     component: EditTaskComponent
   },
+  {
+    path: 'task/alterar/:id',
+    component: EditTaskComponent
+  }
+  
 ];
 
 @NgModule({

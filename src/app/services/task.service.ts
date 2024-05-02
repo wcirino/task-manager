@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Task } from '../model/Task';
+import { TaskDTO } from '../model/TaskDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +44,7 @@ export class TaskService {
       );
   }
 
-  updateTask(id: number, task: Task): Observable<Task> {
+  updateTask(id: number, task: TaskDTO): Observable<Task> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8'
     });

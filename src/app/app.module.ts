@@ -42,6 +42,7 @@ import { DialogSimNaoComponent } from './shared/components/dialog-sim-nao/dialog
 import { SnackbarMensagemComponent } from './shared/components/snackbar-mensagem/snackbar-mensagem.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DialogOkComponent } from './shared/components/dialog-ok/dialog-ok.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { DialogOkComponent } from './shared/components/dialog-ok/dialog-ok.compo
     CommonModule,
     MatIconModule,
     MatDialogModule,
-    MatSnackBarModule  
+    MatSnackBarModule,
+    ReactiveFormsModule  
    
   ],
   providers: [],
