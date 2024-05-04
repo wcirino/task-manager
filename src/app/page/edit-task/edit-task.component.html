@@ -31,14 +31,14 @@
             </div>
             <div class="col-md-4">
                 <mat-form-field class="w-100">
-                    <mat-label>Data de conclusão</mat-label>
-                    <input matInput type="date" placeholder="Data de conclusão" formControlName="dt_conclusao">
+                    <mat-label>Data limite</mat-label>
+                    <input matInput type="date" placeholder="Data limite" [disabled]="true" formControlName="dt_limite">
                 </mat-form-field>
             </div>
             <div class="col-md-4">
                 <mat-form-field class="w-100">
-                    <mat-label>Data limite</mat-label>
-                    <input matInput type="date" placeholder="Data limite" [disabled]="true" formControlName="dt_limite">
+                    <mat-label>Data de conclusão</mat-label>
+                    <input matInput type="date" placeholder="Data de conclusão" formControlName="dt_conclusao">
                 </mat-form-field>
             </div>
         </div>

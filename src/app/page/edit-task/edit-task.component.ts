@@ -59,6 +59,9 @@ export class EditTaskComponent implements OnInit {
     this.prioridadeForm = this.form.controls['prioridade'] as FormControl;
     this.responsavelForm = this.form.controls['responsavel'] as FormControl;
     this.statusForm = this.form.controls['status'] as FormControl;
+
+    this.dt_criacaoForm.disable();
+    this.dt_limiteForm.disable();
   }
 
   subscribeToRouteParams(): void {

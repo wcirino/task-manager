@@ -1,12 +1,12 @@
 <div class="container mt-4">
-    <form class="max-width-form">
+    <form class="max-width-form" [formGroup]="form">
         <h1 class="mb-4">Adicionar Tarefa</h1>
 
         <div class="row mb-3">
             <div class="col-md-12">
                 <mat-form-field class="w-100">
                     <mat-label>Título</mat-label>
-                    <input matInput placeholder="Título">
+                    <input matInput placeholder="Título" formControlName="titulo">
                 </mat-form-field>
             </div>
         </div>
@@ -15,7 +15,7 @@
             <div class="col-md-12">
                 <mat-form-field class="w-100">
                     <mat-label>Descrição</mat-label>
-                    <textarea matInput placeholder="Descrição" rows="4"></textarea>
+                    <textarea matInput placeholder="Descrição" rows="4" formControlName="descricao"></textarea>
                 </mat-form-field>
             </div>
         </div>
@@ -24,19 +24,19 @@
             <div class="col-md-4">
                 <mat-form-field class="w-100">
                     <mat-label>Data de criação</mat-label>
-                    <input matInput type="date" placeholder="Data de criação" disabled>
+                    <input matInput type="date" placeholder="Data de criação" formControlName="dt_criacao" >
                 </mat-form-field>
             </div>
             <div class="col-md-4">
                 <mat-form-field class="w-100">
                     <mat-label>Data de conclusão</mat-label>
-                    <input matInput type="date" placeholder="Data de conclusão">
+                    <input matInput type="date" placeholder="Data de conclusão" formControlName="dt_conclusao">
                 </mat-form-field>
             </div>
             <div class="col-md-4">
                 <mat-form-field class="w-100">
                     <mat-label>Data limite</mat-label>
-                    <input matInput type="date" placeholder="Data limite">
+                    <input matInput type="date" placeholder="Data limite" formControlName="dt_limite">
                 </mat-form-field>
             </div>
         </div>
@@ -45,7 +45,7 @@
             <div class="col-md-4">
                 <mat-form-field class="w-100">
                     <mat-label>Prioridade</mat-label>
-                    <mat-select placeholder="Prioridade">
+                    <mat-select placeholder="Prioridade" formControlName="prioridade">
                         <mat-option value="1">Baixa</mat-option>
                         <mat-option value="2">Média</mat-option>
                         <mat-option value="3">Alta</mat-option>
@@ -56,7 +56,7 @@
             <div class="col-md-4">
                 <mat-form-field class="w-100">
                     <mat-label>Responsavel</mat-label>
-                    <mat-select placeholder="Prioridade">
+                    <mat-select placeholder="Responsavel" formControlName="responsavel">
                         <mat-option value="1">Willyan</mat-option>
                         <mat-option value="2">Natalia</mat-option>
                         <mat-option value="3">Karina</mat-option>
@@ -82,7 +82,7 @@
 
         <div class="row mb-3">
             <div class="col-md-12 d-flex justify-content-end">
-                <button type="button" class="btn btn-primary custom-margin-right">Concluir</button>
+                <button type="button" class="btn btn-primary custom-margin-right" (click)="criarNovaTarefa()">Concluir</button>
                 <button type="button" class="btn btn-primary ml-2 custom-margin-right">Limpar</button>
                 <button type="button" class="btn btn-secondary ml-2 custom-margin-right">Cancelar</button>
             </div>
