@@ -3,6 +3,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Task } from '../model/Task';
 import { TaskDTO } from '../model/TaskDTO';
+import { TaskResponse } from '../model/taskReponse';
 
 @Injectable({
   providedIn: 'root'
@@ -23,13 +24,27 @@ export class TaskService {
       );
   }
 
-  searchTasks(json: any): Observable<any> {
+  // searchTasks(json: any): Observable<Task[]> {
+  //   const url = `${this.baseURL}/search`;
+  //   const headers = new HttpHeaders({
+  //     'Content-Type': 'application/json; charset=utf-8'
+  //   });
+  //   console.log("teste", url, json);
+  //   const params = new HttpParams({ fromObject: json });
+  //   return this.http.get<Task[]>(url, { headers, params }).pipe(
+  //     catchError(this.handleError)
+  //   );
+  // }
+
+  searchTasks(json: any): Observable<TaskResponse> {
     const url = `${this.baseURL}/search`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8'
     });
+
+    console.log("teste", url, json);
     const params = new HttpParams({ fromObject: json });
-    return this.http.get<any>(url, { headers, params }).pipe(
+    return this.http.get<TaskResponse>(url, { headers, params }).pipe(
       catchError(this.handleError)
     );
   }

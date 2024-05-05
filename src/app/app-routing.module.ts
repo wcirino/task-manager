@@ -32,6 +32,10 @@ const routes: Routes = [
   {
     path: 'task/alterar/:id',
     component: EditTaskComponent
+  },
+  {
+    path: "task/pesquisa",
+    component: TaskPesquisaComponent
   }
   
 ];
