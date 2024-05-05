@@ -15,6 +15,8 @@ export class EditTaskComponent implements OnInit {
   taskId!: number;
   task!: Task;
   form!: FormGroup;
+  currentDate = new Date();
+  mostrarDataLimite: boolean = true;
 
 
   tituloForm!: FormControl;
@@ -62,6 +64,8 @@ export class EditTaskComponent implements OnInit {
 
     this.dt_criacaoForm.disable();
     this.dt_limiteForm.disable();
+
+    console.log(this.dt_criacaoForm);
   }
 
   subscribeToRouteParams(): void {
@@ -82,12 +86,17 @@ export class EditTaskComponent implements OnInit {
   fillFormControls(task: Task): void {
     this.tituloForm.setValue(task.titulo);
     this.descricaoForm.setValue(task.descricao);
-    this.dt_criacaoForm.setValue(task.dt_limite);
-    this.dt_conclusaoForm.setValue(task.dt_limite);
+    this.dt_criacaoForm.setValue(task.dt_criacao);
+    this.dt_conclusaoForm.setValue(task.dt_conclusao);
     this.dt_limiteForm.setValue(task.dt_limite);
     this.prioridadeForm.setValue(task.prioridade);
     this.responsavelForm.setValue(task.responsavel);
     this.statusForm.setValue(task.status);
+
+    console.log("task verificar");
+    console.log(task);
+    console.log(this.dt_criacaoForm.value);
+    console.log(this.dt_conclusaoForm.value);
   }
 
   updateTask(id: number): void {
@@ -143,7 +152,7 @@ export class EditTaskComponent implements OnInit {
   navegarParaPaginaPrincipal(): void {
     setTimeout(() => {
         this.router.navigate(['/']);
-    }, 6000); 
+    }, 2000); 
   }
 
 }

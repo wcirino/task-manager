@@ -26,13 +26,13 @@
             <div class="col-md-4">
                 <mat-form-field class="w-100">
                     <mat-label>Data de criação</mat-label>
-                    <input matInput type="date" placeholder="Data de criação" [disabled]="true" formControlName="dt_criacao">
+                    <input matInput  placeholder="Data de criação" [disabled]="true" formControlName="dt_criacao">
                 </mat-form-field>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" *ngIf="mostrarDataLimite">
                 <mat-form-field class="w-100">
                     <mat-label>Data limite</mat-label>
-                    <input matInput type="date" placeholder="Data limite" [disabled]="true" formControlName="dt_limite">
+                    <input matInput  placeholder="Data limite" [disabled]="true" formControlName="dt_limite">
                 </mat-form-field>
             </div>
             <div class="col-md-4">
@@ -85,8 +85,8 @@
         <div class="row mb-3">
             <div class="col-md-12 d-flex justify-content-end">
                 <button type="button" class="btn btn-primary custom-margin-right" (click)="updateTask(taskId)">Editar</button>
-                <button type="button" class="btn btn-success custom-margin-right">Concluir</button>
-                <button type="button" class="btn btn-warning ml-2 custom-margin-right">Limpar</button>
+                <!-- <button type="button" class="btn btn-success custom-margin-right">Concluir</button> -->
+                <!-- <button type="button" class="btn btn-warning ml-2 custom-margin-right">Limpar</button> -->
                 <button type="button" class="btn btn-secondary ml-2 custom-margin-right">Cancelar</button>
             </div>
         </div>

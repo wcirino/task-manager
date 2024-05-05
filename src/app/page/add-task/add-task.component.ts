@@ -21,6 +21,8 @@ export class AddTaskComponent implements OnInit {
   prioridadeForm!: FormControl;
   responsavelForm!: FormControl;
   statusForm!: FormControl;
+  mostrarDataLimite: boolean = false;
+
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -33,6 +35,10 @@ export class AddTaskComponent implements OnInit {
   }
 
   initForm(): void {
+    let currentDate: Date;
+
+    currentDate = new Date();
+
     this.form = this.formBuilder.group({
       titulo: [null],
       descricao: [null],
@@ -54,6 +60,10 @@ export class AddTaskComponent implements OnInit {
     this.statusForm = this.form.controls['status'] as FormControl;
 
     this.dt_criacaoForm.disable();
+    this.dt_conclusaoForm.disable();
+    const formattedDate = currentDate.toLocaleDateString('pt-BR');
+    this.dt_criacaoForm.setValue(formattedDate);
+
   }
 
   criarNovaTarefa(): void {
