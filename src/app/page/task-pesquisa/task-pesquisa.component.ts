@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
 import { Task } from 'src/app/model/Task';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { TaskResponse } from 'src/app/model/taskReponse';
 
 @Component({
   selector: 'app-task-pesquisa',
@@ -20,7 +21,7 @@ export class TaskPesquisaComponent implements OnInit {
   pageSizeOptions: number[] = [5, 10, 15, 25];
 
   constructor(private taskService: TaskService,
-              private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -40,45 +41,64 @@ export class TaskPesquisaComponent implements OnInit {
   }
 
   searchTasks(page: number = 0, size: number = this.pageSize): void {
-    const searchParams = {
-      id: this.idForm.value,
-      title: this.tituloForm.value,
-      description: this.descricaoForm.value,
-      page: page, 
-      size: size 
-    };
+    let searchParams: any = {};
   
+    if (this.idForm.value !== null && this.idForm.value !== '') {
+      searchParams.id = this.idForm.value;
+    }
+  
+    if (this.tituloForm.value !== null && this.tituloForm.value !== '') {
+      searchParams.title = this.tituloForm.value;
+    }
+  
+    if (this.descricaoForm.value !== null && this.descricaoForm.value !== '') {
+      searchParams.description = this.descricaoForm.value;
+    }
+  
+    searchParams.page = page;
+    searchParams.size = size;
+  
+    if (Object.keys(searchParams).length > 0) {
+      this.taskService.searchTasks(searchParams)
+        .subscribe({
+          next: (tasks) => {
+            this.tasks = tasks.content;
+            this.totalElements = tasks.totalElements;
+          },
+          error: (error: any) => {
+            console.error("Erro ao buscar tarefas:", error);
+          }
+        });
+    }
+  }
+  
+  
+  
+
+  searchTasksInicializar(): void {
+    const searchParams = {
+      page: 0,
+      size: 8
+    };
+
     this.taskService.searchTasks(searchParams)
-      .subscribe(tasks => {
-        // this.tasks = tasks; 
-        // this.totalElements = tasks.length; 
+      .subscribe({
+        next: (response) => {
+          this.tasks = response.content;
+          this.totalElements = response.totalElements;
+
+        },
+        error: (error) => {
+          console.error("Erro ao buscar tarefas:", error);
+        }
       });
   }
 
- searchTasksInicializar(): void {
-  const searchParams = {
-    page: 0,
-    size: 8
-  };
 
-  this.taskService.searchTasks(searchParams)
-    .subscribe({
-      next: (response) => {
-        this.tasks = response.content;
-        this.totalElements = response.totalElements;
-      
-      },
-      error: (error) => {
-        console.error("Erro ao buscar tarefas:", error);
-      }
-    });
-}
-
+  limpar(): void {
+    this.form.reset();
+  }
   
-  
-  
-  
-
   alterarTarefa(task: Task): void {
     console.log("Alterando!!");
   }
