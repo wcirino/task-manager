@@ -11,6 +11,8 @@ npm install bootstrap --force
 
 ng add @angular/material 
 
+npm prime -- talvez
+
 Instalar Material, bootstrap e colocar o css no lugar certo
 
 Run `ng serve`  `npm start `for a dev server. Navigate to `http://localhost:3200/`. 
