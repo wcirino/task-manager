@@ -17,8 +17,9 @@ Instalar Material, bootstrap e colocar o css no lugar certo
 
 Run `ng serve`  `npm start `for a dev server. Navigate to `http://localhost:3200/`. 
 
-#Projeto BackEnd
+##Projeto BackEnd
 https://github.com/wcirino/task-manager-backend
+java - 17 e spring boot 3.2.4
 
 ![image](https://github.com/wcirino/task-manager/assets/73764307/055c3cbc-26bc-4851-9895-c0c08cc9c437)
 
