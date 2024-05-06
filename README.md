@@ -21,6 +21,11 @@ Run `ng serve`  `npm start `for a dev server. Navigate to `http://localhost:3200
 
 ![image](https://github.com/wcirino/task-manager/assets/73764307/88823d1d-8df3-4111-9d98-21fb197880a9)
 
+![image](https://github.com/wcirino/task-manager/assets/73764307/dfb4e2e2-f10b-4794-b884-b1cf08aae171)
+
+![image](https://github.com/wcirino/task-manager/assets/73764307/6cfae6d6-5602-4e19-b5d8-af54ccf1dd2a)
+
+
 
 
 
